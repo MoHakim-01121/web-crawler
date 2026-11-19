@@ -13,7 +13,7 @@ RATING = {"One": 1, "Two": 2, "Three": 3, "Four": 4, "Five": 5}
 
 
 def fetch(session, url, retries=3):
-    """Ambil halaman dan kembalikan objek BeautifulSoup. Coba ulang jika gagal."""
+    """Ambil halaman dan kembalikan objek BeautifulSoup."""
     for attempt in range(1, retries + 1):
         try:
             resp = session.get(url, timeout=15)
@@ -27,7 +27,7 @@ def fetch(session, url, retries=3):
 
 
 def parse_quotes(soup, page_url):
-    """Ambil semua kutipan dari satu halaman quotes.toscrape.com."""
+    """Ambil semua KATA KATA HARI INI dari satu halaman quotes.toscrape.com."""
     for q in soup.select("div.quote"):
         yield {
             "quote": q.select_one("span.text").get_text(strip=True).strip("“”"),
