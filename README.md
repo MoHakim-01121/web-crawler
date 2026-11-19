@@ -2,8 +2,8 @@
 
 Program Python untuk melakukan web crawl pada:
 
-1. https://quotes.toscrape.com → `output/quotes.csv`
-2. https://books.toscrape.com → `output/books.csv`
+1. https://quotes.toscrape.com, hasilnya disimpan ke `output/quotes.csv`
+2. https://books.toscrape.com, hasilnya disimpan ke `output/books.csv`
 
 Crawler mulai dari halaman utama, mengambil data di setiap halaman, lalu mengikuti tombol "next" sampai halaman terakhir. Hasil crawl disimpan dalam bentuk file CSV.
 
