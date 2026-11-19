@@ -1,18 +1,3 @@
-"""
-Web crawler sederhana untuk:
-  1. https://quotes.toscrape.com  -> output/quotes.csv
-  2. https://books.toscrape.com   -> output/books.csv
-
-Crawler mulai dari halaman utama, mengambil data di setiap halaman,
-lalu mengikuti tombol "next" sampai halaman terakhir.
-
-Cara pakai:
-  python crawler.py                    # crawl kedua situs
-  python crawler.py quotes             # hanya quotes.toscrape.com
-  python crawler.py books              # hanya books.toscrape.com
-  python crawler.py --max-pages 2      # batasi jumlah halaman per situs
-  python crawler.py --output hasil     # simpan CSV ke folder "hasil"
-"""
 import argparse
 import csv
 import re
@@ -87,7 +72,7 @@ def crawl(session, start_url, parse_page, max_pages=None, delay=0.5):
         next_link = soup.select_one("li.next a")
         url = urljoin(url, next_link["href"]) if next_link else None
         if url:
-            time.sleep(delay)  # beri jeda agar tidak membebani server
+            time.sleep(delay)
     return rows
 
 
